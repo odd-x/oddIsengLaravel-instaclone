@@ -11,7 +11,7 @@ class PostsController extends Controller
     public function __construct()
     {
 
-        $this->middleware('auth');
+            $this->middleware('auth');
 
     }
     public function create()
@@ -20,31 +20,34 @@ class PostsController extends Controller
     }
     
     public function store(){
-    
-    $data = request()->validate([
-            'caption'=>'required',
-            'image'=>['required','image'],
-        ]);
- 
-        $imagePath = (request('image')->store('uploads','public'));
+            
+            $data = request()->validate([
+                    'caption'=>'required',
+                    'image'=>['required','image'],
+                ]);
+                //whole image path
+                $imagePath = (request('image')->store('uploads','public'));
+                //thumbnail path
+                $thumbnail = (request('image')->store('uploads/thumbnails','public'));
+                Image::make(public_path("storage/{$thumbnail}"))
+                ->fit(1200,1200)
+                ->save();
+                
+                /**
+                 *      MIGHT GONNA CHANGE CURRENT LOGIC LATER AS THERE IS NO NEED FOR 2 IMAGES
+                 */
 
-        $thumbnail = (request('image')->store('uploads/thumbnails','public'));
+                //saves post
+                auth()
+                ->user()
+                ->posts()
+                ->create([
+                    'caption' => $data['caption'],
+                    'image' => $imagePath,
+                    'thumbnail' => $thumbnail,
+                ]);
 
-        Image::make(public_path("storage/{$thumbnail}"))
-        ->fit(1200,1200)
-        ->save();
-        
-        
-        auth()
-        ->user()
-        ->posts()
-        ->create([
-            'caption' => $data['caption'],
-            'image' => $imagePath,
-            'thumbnail' => $thumbnail,
-        ]);
-
-         return redirect('/profile/'. Auth()->user()->id);
+        return redirect('/profile/'. Auth()->user()->id);
     }
     
     public function show(\App\Post $post){
