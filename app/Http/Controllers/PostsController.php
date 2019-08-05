@@ -34,6 +34,7 @@ class PostsController extends Controller
         ->fit(1200,1200)
         ->save();
         
+        
         auth()
         ->user()
         ->posts()
