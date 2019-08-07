@@ -32,12 +32,13 @@ class PostsController extends Controller
                 Image::make(public_path("storage/{$thumbnail}"))
                 ->fit(1200,1200)
                 ->save();
-                
+            
                 /**
                  *      MIGHT GONNA CHANGE CURRENT LOGIC LATER AS THERE IS NO NEED FOR 2 IMAGES
                  */
 
                 //saves post
+                
                 auth()
                 ->user()
                 ->posts()
