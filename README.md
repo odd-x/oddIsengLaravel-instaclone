@@ -1,3 +1,13 @@
-# oddIsengLaravel-instaclone
+# Instagram clone made using Laravel
 
-since i don't really knwo what i'm doing, i suggest you to not waste your time looking at this repo lel
+
+This web-based Instagram clone is based on FCC's Laravel tutorial. 
+it covers basic features such as: 
+<ul>
+    <li>Accounts</li>
+    <li>Image posting</li>
+    <li>Bio editing</li>
+    and some other stuff lel
+
+
+</ul>
