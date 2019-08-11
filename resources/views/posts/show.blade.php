@@ -14,12 +14,15 @@
                             class="w-100 rounded-circle">
                     </div>
                     <div>
-                        <div class="font-weight-bold">{{$post->user->username}}</div>
+                        <div class="font-weight-bold"><a
+                                href="/profile/{{Auth::user()->id}}"><span class="text-dark">{{Auth::user()->username}}</span></a></div>
                     </div>
                 </div>
                 <hr>
             </div>
-            <p>{{$post->caption}}</p>
+            <p><span class="font-weight-bold"><a
+                        href="/profile/{{Auth::user()->id}}"><span class="text-dark">{{Auth::user()->username}}</span></a></span> {{$post->caption}}
+            </p>
         </div>
     </div>
 
