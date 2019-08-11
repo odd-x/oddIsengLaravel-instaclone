@@ -4,8 +4,8 @@
 <div class="container" style="border :1px color ">
     <div class="row">
         <div class="col-3">
-            <img src="https://instagram.fcgk13-1.fna.fbcdn.net/vp/b76c80d2cdd898dac1ddfa5d744cb2e7/5DC29102/t51.2885-19/s150x150/59629300_383105945646243_4225468368599121920_n.jpg?_nc_ht=instagram.fcgk13-1.fna.fbcdn.net"
-                class="rounded-circle ; p-5">
+        <img src="/storage/{{$user->profile->image}}"
+            class="rounded-circle ; p-5 ; w-100">
         </div>
         <div class="col-9 pt-5">
             <div class="d-flex justify-content-between align-items-baseline">

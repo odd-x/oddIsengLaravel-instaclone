@@ -34,9 +34,9 @@ class ProfilesController extends Controller
             ->save();
         }
 
-        dd(array_merge($data,
-        ['image'=>$imagePath]
-        ));
+        // dd(array_merge($data,
+        // ['image'=>$imagePath]
+        // ));
         
         Auth()->user()->profile->update(
             array_merge($data,
