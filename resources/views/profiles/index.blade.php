@@ -4,13 +4,14 @@
 <div class="container" style="border :1px color ">
     <div class="row">
         <div class="col-3">
-        <img src="/storage/{{$user->profile->image}}"
-            class="rounded-circle ; p-5 ; w-100">
+            <img src="{{$user->profile->profileImage()}}" class="rounded-circle ; p-5 ; w-100">
         </div>
         <div class="col-9 pt-5">
             <div class="d-flex justify-content-between align-items-baseline">
                 <h1>{{$user->username}}</h1>
+                @can('update', $user->profile)
                 <a href="/p/create">add new post</a>
+                @endcan
             </div>
             @can('update', $user->profile)
             <a href="/profile/{{$user->id}}/edit">Edit Profile</a>
@@ -22,7 +23,7 @@
             </div>
             <div class="pt-3 font-weight-bold">{{$user->profile->title}}</div>
             <div>{{$user->profile->description}}</div>
-            <div><a href="#">{{$user->profile->url ?? 'null' }}</a></div>
+            <div><a href="#">{{$user->profile->url ?? '' }}</a></div>
         </div>
     </div>
 
