@@ -1861,6 +1861,10 @@ __webpack_require__.r(__webpack_exports__);
       axios.post("/follow/" + this.userId).then(function (Response) {
         _this.status = !_this.status;
         console.log(Response.data);
+      })["catch"](function (errors) {
+        if (errors.Response.status == 401) {
+          window.location = "/login";
+        }
       });
     }
   },

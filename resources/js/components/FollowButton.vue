@@ -20,10 +20,17 @@ export default {
 
   methods: {
     followUser() {
-      axios.post("/follow/" + this.userId).then(Response => {
-        this.status = !this.status;
-        console.log(Response.data);
-      });
+      axios
+        .post("/follow/" + this.userId)
+        .then(Response => {
+          this.status = !this.status;
+          console.log(Response.data);
+        })
+        .catch(errors => {
+          if (errors.Response.status == 401) {
+            window.location = "/login";
+          }
+        });
     }
   },
 

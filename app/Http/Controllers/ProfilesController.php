@@ -7,7 +7,13 @@ use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 
 class ProfilesController extends Controller
+
 {
+    
+    public function __construct()
+    {
+        $this->middleware('auth');    
+    }
     public function index(User $user){
         $follows = (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
 
