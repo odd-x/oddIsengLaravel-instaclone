@@ -13,6 +13,7 @@
                 <a href="/p/create">add new post</a>
                 @endcan
             </div>
+            <button class="btn btn-primary">Follow</button>
             @can('update', $user->profile)
             <a href="/profile/{{$user->id}}/edit">Edit Profile</a>
             @endcan
