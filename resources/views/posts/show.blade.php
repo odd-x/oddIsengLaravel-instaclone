@@ -10,13 +10,13 @@
             <div>
                 <div class="d-flex align-items-center">
                     <div class="pr-3">
-                        <img src="{{Auth::user()->profile->profileImage()}}" alt="" style="max-width:100px"
+                        <img src="{{$post->user->profile->profileImage()}}" alt="" style="max-width:100px"
                             class="w-100 rounded-circle">
                     </div>
                     <div>
                         <div class="font-weight-bold">
-                            <a href="/profile/{{Auth::user()->id}}">
-                                <span class="text-dark">{{Auth::user()->username}}</span>
+                            <a href="/profile/{{$post->user->id}}">
+                                <span class="text-dark">{{$post->user->username}}</span>
                             </a>
                             |
                             <a href="">Follow</a>
@@ -29,8 +29,8 @@
             </div>
             <p>
                 <span class="font-weight-bold">
-                    <a href="/profile/{{Auth::user()->id}}">
-                        <span class="text-dark"> {{Auth::user()->username}}</span>
+                    <a href="/profile/{{$post->user->id}}">
+                        <span class="text-dark"> {{$post->user->username}}</span>
                     </a>
                 </span>
                  {{$post->caption}}

@@ -15,8 +15,8 @@
             <div>
             <p>
                 <span class="font-weight-bold">
-                    <a href="/profile/{{Auth::user()->id}}">
-                        <span class="text-dark"> {{Auth::user()->username}}</span>
+                    <a href="/profile/{{$post->user->id}}">
+                        <span class="text-dark"> {{$post->user->name}}</span>
                     </a>
                 </span>
                 {{$post->caption}}
