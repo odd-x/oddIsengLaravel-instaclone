@@ -1,11 +1,6 @@
 <template>
   <div>
-    <button
-      class="btn btn-primary ml-4"
-      user-id="this.userId"
-      @click="followUser"
-      v-text="buttonText"
-    ></button>
+    <button class="btn btn-primary ml-4" @click="followUser" v-text="buttonText"></button>
   </div>
 </template>
 
@@ -19,13 +14,14 @@ export default {
 
   data: function() {
     return {
-      stastus: this.follows
+      status: this.follows
     };
   },
 
   methods: {
     followUser() {
       axios.post("/follow/" + this.userId).then(Response => {
+        this.status = !this.status;
         console.log(Response.data);
       });
     }
